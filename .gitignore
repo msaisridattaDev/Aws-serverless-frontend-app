@@ -22,11 +22,13 @@ build/
 .DS_Store
 Thumbs.db
 
-# Webpack & Babel Caches
-.cache/
-.babelrc
-webpack.config.js
-
 # Logs
 logs
 *.log
+
+# Cache & Babel
+.cache/
+.babelrc
+
+# Vite Config
+vite.config.js
