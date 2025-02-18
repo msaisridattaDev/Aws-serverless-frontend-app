@@ -4,30 +4,24 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
   entry: "./src/index.js",
   output: {
-    path: path.resolve(__dirname, "dist"),
+    path: path.resolve(__dirname, "build"), // ✅ Change from "dist" to "build"
     filename: "bundle.js"
   },
   mode: "production",
   module: {
     rules: [
       {
-        test: /\.jsx?$/,  // ✅ Supports both .js and .jsx
+        test: /\.js$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader",
-          options: {
-            presets: ["@babel/preset-env", "@babel/preset-react"] // ✅ Ensure React JSX is transpiled
-          }
+          loader: "babel-loader"
         }
       },
       {
-        test: /\.css$/,  // ✅ Supports CSS files
-        use: ["style-loader", "css-loader"]
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"] // ✅ Add CSS loader to fix missing styles
       }
     ]
-  },
-  resolve: {
-    extensions: [".js", ".jsx"],  // ✅ Allows importing .js and .jsx without extension
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -35,7 +29,7 @@ module.exports = {
     })
   ],
   devServer: {
-    static: "./dist",
+    static: "./build", // ✅ Match with output folder
     port: 3000
   }
 };
