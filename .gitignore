@@ -6,9 +6,8 @@ yarn-error.log
 package-lock.json
 yarn.lock
 
-# Build & Dist Files
-dist/
-build/
+# Build Output (Render Needs This)
+dist/  ❌ REMOVE this if it exists!
 
 # Environment Variables
 .env
@@ -25,10 +24,3 @@ Thumbs.db
 # Logs
 logs
 *.log
-
-# Cache & Babel
-.cache/
-.babelrc
-
-# Vite Config
-vite.config.js
